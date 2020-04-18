@@ -27,24 +27,24 @@ describe('InstallComponent', () => {
 
   describe('Install Component Integration Test', () => {
     it('should be able to ' +
-      '\ndisplay selenium is not installed, ' +
-      '\ndisplay firefox is not installed, ' +
-      '\ndisplay chrome is not installed, ' +
-      '\ndisplay ie is not installed & ' +
-      '\ndisplay edge is not installed; ' +
-      '\nthen when the user ' +
-      '\nselects a version of selenium & ' +
-      '\nclicks "install"; ' +
-      '\nthen installation should begin & ' +
-      '\ninstall progress should be updated until installed; ' +
-      '\nthen when installation is complete ' +
-      '\ndisplay a notification indicating installation is complete, ' +
-      '\ndisplay the install path to selenium, ' +
-      '\ndisplay the installed version of selenium, ' +
-      '\ndisplay the installed version of the firefox driver, ' +
-      '\ndisplay the installed version of the chrome driver, ' +
-      '\ndisplay the installed version of the ie driver & ' +
-      '\ndisplay the installed version of the edge driver', () => {
+      '\n   - display selenium is not installed, ' +
+      '\n   - display firefox is not installed, ' +
+      '\n   - display chrome is not installed, ' +
+      '\n   - display ie is not installed & ' +
+      '\n   - display edge is not installed; ' +
+      '\n - then when the user ' +
+      '\n   - selects a version of selenium & ' +
+      '\n   - clicks "install"; ' +
+      '\n - then installation should begin & ' +
+      '\n   - install progress should be updated until installed; ' +
+      '\n - then when installation is complete ' +
+      '\n   - display a notification indicating installation is complete, ' +
+      '\n   - display the install path to selenium, ' +
+      '\n   - display the installed version of selenium, ' +
+      '\n   - display the installed version of the firefox driver, ' +
+      '\n   - display the installed version of the chrome driver, ' +
+      '\n   - display the installed version of the ie driver & ' +
+      '\n   - display the installed version of the edge driver', () => {
         // Display
         const seleniumInstallPath = htmlElement.querySelector('#selenium-install-path');
         const seleniumVersionInstalled = htmlElement.querySelector('#selenium-version-installed');
