@@ -10,7 +10,7 @@ import { seleniumStandalone } from 'selenium-standalone';
 @Injectable({
   providedIn: 'root'
 })
-export class ElectronService implements doeChat.PlatformService {
+export class ElectronService {
   ipcRenderer: typeof ipcRenderer;
   webFrame: typeof webFrame;
   remote: typeof remote;
