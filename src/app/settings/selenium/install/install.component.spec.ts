@@ -98,11 +98,12 @@ describe('InstallComponent', () => {
         expect(component.onInstallSeleniumButtonClick).toHaveBeenCalled();
 
       });
-      it('should call the "installSelenium" method on the seleniumInstallationService', () => {
+      fit('should delegate installation to "installSelenium" the seleniumInstallationService', () => {
         const seleniumInstallationService =
         jasmine.createSpyObj('SeleniumInstallationService', ['installSelenium']);
 
         // installSeleniumSubmit.
+        component.onInstallSeleniumButtonClick();
 
         // Verify service method was called.
         expect(seleniumInstallationService.installSelenium.calls.count()).toBe(1, 'We called "installSelenium" on service');
