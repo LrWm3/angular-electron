@@ -61,19 +61,19 @@ describe('InstallComponent', () => {
         const installSeleniumFailedNotification = htmlElement.querySelector('#install-selenium-failed-notification');
 
         // Display elements should be present.
-        expect(seleniumVersionSelector).toBeDefined();
-        expect(installSeleniumSubmit).toBeDefined();
-        expect(seleniumInstallPath).toBeDefined();
-        expect(seleniumVersionInstalled).toBeDefined();
-        expect(chromeVersionInstalled).toBeDefined();
-        expect(firefoxVersionInstalled).toBeDefined();
-        expect(edgeVersionInstalled).toBeDefined();
-        expect(ieVersionInstalled).toBeDefined();
+        expect(seleniumVersionSelector).toBeTruthy();
+        expect(installSeleniumSubmit).toBeTruthy();
+        expect(seleniumInstallPath).toBeTruthy();
+        expect(seleniumVersionInstalled).toBeTruthy();
+        expect(chromeVersionInstalled).toBeTruthy();
+        expect(firefoxVersionInstalled).toBeTruthy();
+        expect(edgeVersionInstalled).toBeTruthy();
+        expect(ieVersionInstalled).toBeTruthy();
 
         // Progress and Notification elements not yet present.
-        expect(installSeleniumProgress).toBeUndefined();
-        expect(installSeleniumCompleteNotification).toBeUndefined();
-        expect(installSeleniumFailedNotification).toBeUndefined();
+        expect(installSeleniumProgress).toBeNull();
+        expect(installSeleniumCompleteNotification).toBeNull();
+        expect(installSeleniumFailedNotification).toBeNull();
 
         // TODO - Verify 'not installed' state.
         // expect(seleniumInstallPath.textContent).toBe("None");
