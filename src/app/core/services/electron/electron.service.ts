@@ -5,16 +5,18 @@ import { Injectable } from '@angular/core';
 import { ipcRenderer, webFrame, remote } from 'electron';
 import * as childProcess from 'child_process';
 import * as fs from 'fs';
+import { seleniumStandalone } from 'selenium-standalone';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ElectronService {
+export class ElectronService implements doeChat.PlatformService {
   ipcRenderer: typeof ipcRenderer;
   webFrame: typeof webFrame;
   remote: typeof remote;
   childProcess: typeof childProcess;
   fs: typeof fs;
+  seleniumStandalone: typeof seleniumStandalone;
 
   get isElectron(): boolean {
     return !!(window && window.process && window.process.type);
@@ -29,6 +31,7 @@ export class ElectronService {
 
       this.childProcess = window.require('child_process');
       this.fs = window.require('fs');
+      this.seleniumStandalone = window.require('selenium-standalone');
     }
   }
 }
