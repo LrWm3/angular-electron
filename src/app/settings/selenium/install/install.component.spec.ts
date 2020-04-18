@@ -18,7 +18,7 @@ describe('InstallComponent', () => {
     fixture = TestBed.createComponent(InstallComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-    htmlElement = fixture.nativeElement;
+    htmlElement = fixture.debugElement.nativeElement;
   });
 
   it('should create', () => {
@@ -26,7 +26,7 @@ describe('InstallComponent', () => {
   });
 
   describe('Install Component Integration Test', () => {
-    it('should be able to ' +
+    it('should be able to:' +
       '\n   - display selenium is not installed, ' +
       '\n   - display firefox is not installed, ' +
       '\n   - display chrome is not installed, ' +
@@ -84,7 +84,14 @@ describe('InstallComponent', () => {
   });
 
   describe('Install Component Unit tests', () => {
+    describe('beginInstall', () => {
+      fit('should be called when "install" is pressed', () => {
+        const installSeleniumSubmit = htmlElement.querySelector('#install-selenium-submit');
+        expect(htmlElement).toBeTruthy();
+        expect(installSeleniumSubmit).toBeTruthy();
 
+    });
+    })
   })
 
 });
