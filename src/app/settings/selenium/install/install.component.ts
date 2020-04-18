@@ -12,4 +12,7 @@ export class InstallComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public onInstallSeleniumButtonClick(): void {
+    throw new Error("Not implemeneted");
+  }
 }

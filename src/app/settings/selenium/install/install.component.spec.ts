@@ -84,13 +84,30 @@ describe('InstallComponent', () => {
   });
 
   describe('Install Component Unit tests', () => {
-    describe('beginInstall', () => {
-      fit('should be called when "install" is pressed', () => {
-        const installSeleniumSubmit = htmlElement.querySelector('#install-selenium-submit');
+    describe('onInstallSeleniumButtonClick', () => {
+      it('should be called when "install" is pressed', async () => {
+        spyOn(component, 'onInstallSeleniumButtonClick');
+        let installSeleniumSubmit: HTMLElement = htmlElement.querySelector('#install-selenium-submit') as HTMLElement;
         expect(htmlElement).toBeTruthy();
         expect(installSeleniumSubmit).toBeTruthy();
 
-    });
+        installSeleniumSubmit.click();
+
+        await fixture.whenStable()
+
+        expect(component.onInstallSeleniumButtonClick).toHaveBeenCalled();
+
+      });
+      it('should call the "installSelenium" method on the seleniumInstallationService', () => {
+        const seleniumInstallationService =
+        jasmine.createSpyObj('SeleniumInstallationService', ['installSelenium']);
+
+        // installSeleniumSubmit.
+
+        // Verify service method was called.
+        expect(seleniumInstallationService.installSelenium.calls.count()).toBe(1, 'We called "installSelenium" on service');
+
+      })
     })
   })
 
