@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { SeleniumInstallationService } from './selenium-installation.service'
 @Component({
   selector: 'app-install',
   templateUrl: './install.component.html',
@@ -7,12 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InstallComponent implements OnInit {
 
-  constructor() { }
+  constructor(private seleniumInstallationService: SeleniumInstallationService) { }
 
   ngOnInit(): void {
   }
 
   public onInstallSeleniumButtonClick(): void {
-    throw new Error("Not implemeneted");
+    let installConfig = { seleniumVersion: "1.0.0" }
+    this.seleniumInstallationService.installSelenium(installConfig);
   }
 }
