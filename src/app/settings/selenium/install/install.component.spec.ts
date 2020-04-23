@@ -2,14 +2,25 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { InstallComponent } from './install.component';
 
+import { mock, instance, when, verify, anything } from 'ts-mockito'
+import { SeleniumInstallationService, SeleniumInstallationConfiguration } from './selenium-installation.service';
+import { Observable, defer } from 'rxjs';
+
 describe('InstallComponent', () => {
   let component: InstallComponent;
   let fixture: ComponentFixture<InstallComponent>;
   let htmlElement: HTMLElement;
+  let seleniumInstallationServiceMock: SeleniumInstallationService;
 
   beforeEach(async(() => {
+    seleniumInstallationServiceMock = mock(SeleniumInstallationService);
+    let seleniumInstallationServiceMockIns = instance(seleniumInstallationServiceMock);
+
     TestBed.configureTestingModule({
-      declarations: [ InstallComponent ]
+      declarations: [InstallComponent],
+      providers: [
+        {provide: SeleniumInstallationService, useValue: seleniumInstallationServiceMockIns}
+      ]
     })
     .compileComponents();
   }));
@@ -17,6 +28,7 @@ describe('InstallComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(InstallComponent);
     component = fixture.componentInstance;
+
     fixture.detectChanges();
     htmlElement = fixture.debugElement.nativeElement;
   });
@@ -98,15 +110,18 @@ describe('InstallComponent', () => {
         expect(component.onInstallSeleniumButtonClick).toHaveBeenCalled();
 
       });
-      fit('should delegate installation to "installSelenium" the seleniumInstallationService', () => {
-        const seleniumInstallationService =
-        jasmine.createSpyObj('SeleniumInstallationService', ['installSelenium']);
+      it('should delegate installation to "installSelenium" the seleniumInstallationService', () => {
+        const installConfig: SeleniumInstallationConfiguration = { seleniumVersion: "1.0.0" };
+        let observableMock = defer(() => Promise.resolve({ complete: true, progress: 100 }));
+
+        when(seleniumInstallationServiceMock.installSelenium(installConfig)).thenReturn(observableMock);
 
         // installSeleniumSubmit.
         component.onInstallSeleniumButtonClick();
 
         // Verify service method was called.
-        expect(seleniumInstallationService.installSelenium.calls.count()).toBe(1, 'We called "installSelenium" on service');
+        // Try not using 'anything' here.
+        verify(seleniumInstallationServiceMock.installSelenium(anything())).called();
 
       })
     })
