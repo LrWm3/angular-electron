@@ -66,11 +66,11 @@ describe('InstallComponent', () => {
         const ieVersionInstalled = htmlElement.querySelector('#ie-version-installed');
 
         // Interactable
-        const seleniumVersionSelector = htmlElement.querySelector("#selenium-version-selector");
-        const installSeleniumSubmit = htmlElement.querySelector('#install-selenum-submit');
-        const installSeleniumProgress = htmlElement.querySelector('#install-selenium-progress');
-        const installSeleniumCompleteNotification = htmlElement.querySelector('#install-selenium-complete-notification');
-        const installSeleniumFailedNotification = htmlElement.querySelector('#install-selenium-failed-notification');
+        const seleniumVersionSelector = htmlElement.querySelector("#selenium-version-select");
+        const installSeleniumSubmit = htmlElement.querySelector('#selenium-install-submit');
+        const installSeleniumProgress = htmlElement.querySelector('#selenium-install-progress');
+        const installSeleniumCompleteNotification = htmlElement.querySelector('#selenium-install-complete-notification');
+        const installSeleniumFailedNotification = htmlElement.querySelector('#selenium-install-failed-notification');
 
         // Display elements should be present.
         expect(seleniumVersionSelector).toBeTruthy();
@@ -99,7 +99,7 @@ describe('InstallComponent', () => {
     describe('onInstallSeleniumButtonClick', () => {
       it('should be called when "install" is pressed', async () => {
         spyOn(component, 'onInstallSeleniumButtonClick');
-        let installSeleniumSubmit: HTMLElement = htmlElement.querySelector('#install-selenium-submit') as HTMLElement;
+        let installSeleniumSubmit: HTMLElement = htmlElement.querySelector('#selenium-install-submit') as HTMLElement;
         expect(htmlElement).toBeTruthy();
         expect(installSeleniumSubmit).toBeTruthy();
 

@@ -1,2 +1,41 @@
-<p>install works!</p>
-<button id="install-selenium-submit" (click)="onInstallSeleniumButtonClick()">Install</button>
+<div>
+  <h1>Selenium Settings</h1>
+  <section id="selenium-settings-info">
+    <ul>
+      <li>
+        <label for="selenium-install-path">Selenium installation path</label>
+        <p id="selenium-install-path">TODO</p>
+      </li>
+      <li>
+        <label for="selenium-version-installed">TODO</label>
+        <p id="selenium-version-installed">TODO</p>
+      </li>
+      <li>
+        <label for="firefox-version-installed">TODO</label>
+        <p id="firefox-version-installed">TODO</p>
+      </li>
+      <li>
+        <label for="chrome-version-installed">TODO</label>
+        <p id="chrome-version-installed">TODO</p>
+      </li>
+      <li>
+        <label for="edge-version-installed">TODO</label>
+        <p id="edge-version-installed">TODO</p>
+      </li>
+      <li>
+        <label for="ie-version-installed">TODO</label>
+        <p id="ie-version-installed">TODO</p>
+      </li>
+    </ul>
+  </section>
+  <section id="selenium-settings-install">
+    <!-- TODO: Configure progress -->
+    <!-- <progress id="selenium-install-progress" max="100" value="70">TODO</progress> -->
+    <select name="selenium-version-select" id="selenium-version-select">
+      <option value="1.0">1.0</option>
+      <option value="TODO">TODO</option>
+    </select>
+    <button id="selenium-install-submit" (click)="onInstallSeleniumButtonClick()">Install</button>
+  </section>
+</div>
+
