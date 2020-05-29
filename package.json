@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "9.1.0",
-    "@angular-devkit/build-angular": "0.901.1",
+    "@angular-devkit/build-angular": "0.901.7",
     "@angular-eslint/builder": "0.0.1-alpha.18",
     "@angular/cli": "9.1.1",
     "@angular/common": "9.1.1",
@@ -63,7 +63,7 @@
     "@typescript-eslint/parser": "2.27.0",
     "chai": "4.2.0",
     "codelyzer": "5.2.2",
-    "conventional-changelog-cli": "2.0.32",
+    "conventional-changelog-cli": "2.0.34",
     "core-js": "3.6.5",
     "cross-env": "7.0.2",
     "electron": "8.2.1",
